@@ -3,23 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Text Dillon</title>
-
-  <meta http-equiv="refresh"
-        content="0; url=sms:+17174146101?body=Hi%20Dillon!%20I%20saw%20one%20of%20your%20vehicles%20on%20Facebook%20Marketplace.%20Is%20it%20still%20available?">
 </head>
 
-<body>
-  <h1>Text Dillon</h1>
+<body style="text-align:center; font-family:Arial; padding-top:60px;">
 
-  <p>Tap the button below to text me about a vehicle.</p>
+  <h1>TEXT DILLON</h1>
 
-  <a href="sms:+17174146101?body=Hi%20Dillon!%20I%20saw%20one%20of%20your%20vehicles%20on%20Facebook%20Marketplace.%20Is%20it%20still%20available?"
-     style="display:inline-block;padding:18px 30px;background:#1877F2;color:white;text-decoration:none;font-size:22px;font-weight:bold;border-radius:10px;">
-     📲 TEXT DILLON
+  <p>Questions about this vehicle?</p>
+
+  <a id="textButton"
+     style="display:inline-block;padding:20px 35px;background:#1877F2;color:white;text-decoration:none;font-size:24px;font-weight:bold;border-radius:10px;">
+     📲 TEXT ME — CLICK HERE
   </a>
 
-  <p>Or call/text: <strong>717-414-6101</strong></p>
+  <p style="margin-top:25px;">Call/Text: <strong>717-414-6101</strong></p>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const vehicle = params.get("vehicle");
+
+  let message;
+
+  if (vehicle) {
+    message = "Hi Dillon! I'm interested in the " + vehicle +
+              " I saw on Facebook Marketplace. Is it still available?";
+  } else {
+    message = "Hi Dillon! I saw one of your vehicles on Facebook Marketplace. Is it still available?";
+  }
+
+  document.getElementById("textButton").href =
+    "sms:+17174146101?body=" + encodeURIComponent(message);
+</script>
+
 </body>
 </html>
